@@ -1,6 +1,5 @@
 package oop.example.interfaces.impl.magic;
 
-import oop.example.interfaces.Animal;
 import oop.example.interfaces.MagicAnimal;
 
 /**

@@ -1,17 +1,15 @@
 package oop.example.interfaces.impl.magic;
 
-import oop.example.interfaces.Animal;
 import oop.example.interfaces.MagicAnimal;
-import oop.example.interfaces.impl.ordinal.Duck;
+import oop.example.interfaces.impl.ordinal.Rabbit;
 
 /**
  * Created by shaur on 29.02.16.
- * for Imp manga server project
  */
-public class MagicDuck extends Duck implements MagicAnimal {
-    private MagicAnimal inside;
+public class MagicRabbit extends Rabbit implements MagicAnimal {
+    MagicAnimal inside;
 
-    public MagicDuck(MagicAnimal inside) {
+    public MagicRabbit(MagicAnimal inside) {
         this.inside = inside;
     }
 
@@ -22,6 +20,6 @@ public class MagicDuck extends Duck implements MagicAnimal {
 
     @Override
     public String tale() {
-        return "Вылетела утка";
+        return "Выбежал кролик";
     }
 }
