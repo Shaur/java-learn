@@ -2,9 +2,7 @@ package oop.example.interfaces.impl.magic;
 
 import oop.example.interfaces.MagicAnimal;
 
-/**
- * Created by shaur on 29.02.16.
- */
+
 public class Egg implements MagicAnimal {
     @Override
     public MagicAnimal getAnimalInside() {

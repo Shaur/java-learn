@@ -3,9 +3,7 @@ package oop.example.interfaces.impl.magic;
 import oop.example.interfaces.MagicAnimal;
 import oop.example.interfaces.impl.ordinal.Rabbit;
 
-/**
- * Created by shaur on 29.02.16.
- */
+
 public class MagicRabbit extends Rabbit implements MagicAnimal {
     MagicAnimal inside;
 

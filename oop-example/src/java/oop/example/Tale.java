@@ -6,9 +6,7 @@ import oop.example.person.Chest;
 import oop.example.person.Ivan;
 import oop.example.person.Scrag;
 
-/**
- * Created by shaur on 29.02.16.
- */
+
 public class Tale {
 
     public static void main(String[] argv) {

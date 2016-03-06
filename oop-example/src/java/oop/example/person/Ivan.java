@@ -3,9 +3,7 @@ package oop.example.person;
 import oop.example.interfaces.Animal;
 import oop.example.interfaces.MagicAnimal;
 
-/**
- * Created by shaur on 29.02.16.
- */
+
 public class Ivan {
 
     public static MagicAnimal bowShot(Animal animal) {
