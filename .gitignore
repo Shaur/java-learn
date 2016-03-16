@@ -1,7 +1,6 @@
 *.class
-.idea/
+**/.idea/**
 /out/
 *.iml
-/collections-example/nbproject/private/
-/collections-example/build/
+**/build/**
 **/nbproject/**
