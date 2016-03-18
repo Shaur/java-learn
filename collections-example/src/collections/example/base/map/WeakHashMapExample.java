@@ -1,4 +1,4 @@
-package collections.example.base;
+package collections.example.base.map;
 
 import java.util.*;
 

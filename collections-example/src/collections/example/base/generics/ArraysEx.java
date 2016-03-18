@@ -1,4 +1,4 @@
-package collections.example.base;
+package collections.example.base.generics;
 
 /**
  * Данный класс будет работать с типом X, являющимся насдеником Number

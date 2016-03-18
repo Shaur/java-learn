@@ -1,10 +1,9 @@
-package collections.example.base;
+package collections.example.base.map;
 
-
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class HashMapExample {
+public class LinkedHashMapExample {
 
     /**
      * Данная реализация хранит данные в виде Ключ - Значение
@@ -12,12 +11,12 @@ public class HashMapExample {
      */
     public static void main(String[] args) {
         /**
-         * Создаем Map  с реализацией HashMap
+         * Создаем Map  с реализацией LinkedHashMap
          * Это означает, что реализация всех методом интерфейса Map
-         * будет браться из класса HashMap
+         * будет браться из класса LinkedHashMap
          * В данном случает Ключ будет иметь тип String, а значение - Integer
          */
-        Map<String, Integer> map = new HashMap<>();
+        Map<String, Integer> map = new LinkedHashMap<>();
 
         /**
          * Заполняется вот так
@@ -29,9 +28,8 @@ public class HashMapExample {
 
         /**
          * Возвращаем список значений, проходим по нему и выводим
-         * Важно! Список значений может выводиться в произвольном порядке
-         * (не в порядке добавления).
-         * Причины в реализации HashMap
+         * Важно! Список значений будет выводиться в порядке добавления,
+         * в отличии от реализации HashMap
          */
         for(Integer value : map.values()) {
             System.out.println(value);
@@ -53,6 +51,5 @@ public class HashMapExample {
         for(Map.Entry entry : map.entrySet()) {
             System.out.println(String.format("Key: %s, Value: %s", entry.getKey(), entry.getValue()));
         }
-
     }
 }
