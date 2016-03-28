@@ -1,4 +1,4 @@
-package me.dmax.p3;
+package me.dmax.example3;
 
 
 

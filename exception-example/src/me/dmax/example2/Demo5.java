@@ -1,4 +1,4 @@
-package me.dmax.p2;
+package me.dmax.example2;
 
 
 public class Demo5 {

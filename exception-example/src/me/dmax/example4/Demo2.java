@@ -1,4 +1,4 @@
-package me.dmax.p4;
+package me.dmax.example4;
 
 
 import java.io.FileInputStream;

@@ -1,4 +1,4 @@
-package me.dmax.p4;
+package me.dmax.example4;
 
 import com.sun.istack.internal.NotNull;
 import com.sun.istack.internal.Nullable;
