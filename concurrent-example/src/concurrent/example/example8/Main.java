@@ -5,7 +5,6 @@ import java.util.Random;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.Semaphore;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class Main {
 
@@ -103,8 +102,6 @@ public class Main {
 
   // CyclicBarrier.
   //
-  private static AtomicInteger cnt = new AtomicInteger(0);
-
   private static class CyclicBarrierWorker extends Thread {
     private CyclicBarrier cb;
     private int id;

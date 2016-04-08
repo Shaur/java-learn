@@ -1,83 +1,66 @@
 package concurrent.example.example6;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
+
 public class Main {
 
   // Пример 6. Перебор коллекции с параллельным изменением и RW локом.
   //
   public static void main(String[] args) {
-    final RWDictionary dict = new RWDictionary();
+    final ReentrantReadWriteLock rwl = new ReentrantReadWriteLock();
+    final List<Integer> list = new ArrayList<Integer>();
 
-    dict.put("a", "a1");
-    dict.put("b", "b1");
-    dict.put("c", "c1");
-    dict.put("d", "d1");
+    // Заполняем коллекцию 100 значений.
+    for (int i = 0; i < 100; i++) {
+      list.add(i);
+    }
 
-    final Object o = new Object();
-
-    // Первый поток на чтение.
     new Thread(new Runnable() {
       @Override
       public void run() {
-        synchronized (o) {
-          try {
-            o.wait();
-          } catch (InterruptedException e) {
-            e.printStackTrace();
-          }
+        // Через 100 мс удаляем одно значение.
+        try {
+          Thread.sleep(100);
+        } catch (InterruptedException e) {
+          e.printStackTrace();
         }
-
-        for (int i = 0; i < 3; i++) {
-          dict.get("a");
-        }
+        rwl.writeLock().lock();
+        list.remove(12);
+        rwl.writeLock().unlock();
+        System.out.println("removed!");
       }
     }).start();
 
-    // Второй поток на чтение.
     new Thread(new Runnable() {
       @Override
       public void run() {
-        synchronized (o) {
-          try {
-            o.wait();
-          } catch (InterruptedException e) {
-            e.printStackTrace();
-          }
+        // Через 50 мс читаем ещё пару значений.
+        try {
+          Thread.sleep(50);
+        } catch (InterruptedException e) {
+          e.printStackTrace();
         }
-
-        for (int i = 0; i < 2; i++) {
-          dict.get("b");
-        }
+        rwl.readLock().lock();
+        System.out.println(">>>>> " + list.get(17));
+        System.out.println(">>>>> " + list.get(42));
+        System.out.println(">>>>> " + list.get(65));
+        rwl.readLock().unlock();
       }
     }).start();
 
-    // Поток на запись.
-    new Thread(new Runnable() {
-      @Override
-      public void run() {
-        synchronized (o) {
-          try {
-            o.wait();
-          } catch (InterruptedException e) {
-            e.printStackTrace();
-          }
-        }
-
-        for (int i = 0; i < 3; i++) {
-          dict.put("e", "e1");
-        }
-      }
-    }).start();
-
-    // Подождем пока все три потока запустятся и будут ждать на o.wait().
+    // По очереди с задержкой в 10 мс выводим значения из списка.
+    rwl.readLock().lock();
     try {
-      Thread.sleep(1000);
+      for (int i : list) {
+        System.out.println(i);
+        Thread.sleep(10);
+
+      }
     } catch (InterruptedException e) {
       e.printStackTrace();
     }
-
-    // Запускаем все три разом.
-    synchronized (o) {
-      o.notifyAll();
-    }
+    rwl.readLock().unlock();
   }
 }

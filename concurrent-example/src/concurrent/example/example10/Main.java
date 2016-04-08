@@ -10,8 +10,8 @@ public class Main {
   public static void main(String[] args) {
     final List<Integer> list = new CopyOnWriteArrayList<Integer>();
 
-    // Заполняем коллекцию 1000 значений.
-    for (int i = 0; i < 1000; i++) {
+    // Заполняем коллекцию 100 значений.
+    for (int i = 0; i < 100; i++) {
       list.add(i);
     }
 
@@ -24,15 +24,15 @@ public class Main {
         } catch (InterruptedException e) {
           e.printStackTrace();
         }
-        list.remove(100);
+        list.remove(11);
         System.out.println("removed");
       }
     }).start();
 
-    // По очереди с задержкой в 1 мс выводим значения из списка.
+    // По очереди с задержкой в 10 мс выводим значения из списка.
     for (int i : list) {
       try {
-        Thread.sleep(1);
+        Thread.sleep(10);
       } catch (InterruptedException e) {
         e.printStackTrace();
       }
