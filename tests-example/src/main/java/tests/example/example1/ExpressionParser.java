@@ -1,4 +1,4 @@
-package tests.example.example2;
+package tests.example.example1;
 
 import java.util.ArrayList;
 import java.util.List;

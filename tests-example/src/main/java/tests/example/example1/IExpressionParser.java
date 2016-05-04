@@ -1,4 +1,4 @@
-package tests.example.example2;
+package tests.example.example1;
 
 public interface IExpressionParser {
   ExpressionToken[] parse(String expression);
