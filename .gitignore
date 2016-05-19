@@ -7,3 +7,4 @@
 **/nbproject/private/**
 **/target/**
 *.jar
+*.lst
